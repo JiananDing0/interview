@@ -125,6 +125,8 @@
 > 
 > 通过MVCC，虽然每行记录都需要额外的存储空间，更多的行检查工作以及一些额外的维护工作，但可以减少锁的使用，大多数读操作都不用加锁，读数据操作很简单，性能很好，并且也能保证只会读取到符合标准的行，也只锁住必要行。
   
+* InnoDB死锁及解决：死锁原理十分简单，据一些资料显示死锁只会在并发删除时才会出现，有待考证。
+
 ##### 聚簇索引（InnoDB使用）和非聚簇索引（MyISAM使用）
 > InnoDB使用的是聚簇索引，将主键组织到一棵B+树中，而行数据就储存在叶子节点上，若查找主键，则按照B+树的检索算法即可查找到对应的叶节点，之后获得行数据。若进行条件搜索（非主键，假设辅助索引存在）则需要两个步骤：第一步在辅助索引B+树中检索对应的条件，到达其叶子节点获取对应的主键。第二步使用主键在主索引B+树种再执行一次B+树检索操作，最终到达叶子节点即可获取整行数据。
 > 
@@ -135,8 +137,6 @@
 > 由于行数据和叶子节点存储在一起，同一页中会有多条行数据，访问同一数据页不同行记录时，已经把页加载到了Buffer中，再次访问的时候，会在内存中完成访问，不必访问磁盘。这样主键和行数据是一起被载入内存的，找到叶子节点就可以立刻将行数据返回了，如果按照主键 ID 来组织数据，获得数据更快。
 > 
 > 辅助索引使用主键作为"指针"而不是使用地址值作为指针的好处是，减少了当出现行移动或者数据页分裂时辅助索引的维护工作，使用主键值当作指针会让辅助索引占用更多的空间，换来的好处是InnoDB在移动行时无须更新辅助索引中的这个"指针"。也就是说行的位置（实现中通过16K的Page来定位）会随着数据库里数据的修改而发生变化（前面的B+树节点分裂以及Page的分裂），使用聚簇索引就可以保证不管这个主键B+树的节点如何变化，辅助索引树都不受影响。
-  
-* InnoDB死锁及解决：死锁原理十分简单，据一些资料显示死锁只会在并发删除时才会出现，有待考证。
 
 ##### MySQL慢查询及解决
 详见收藏夹文章。
@@ -147,7 +147,7 @@
 
 
 ### Golang
-##### 为什么Golang中可以返回局部变量(local variable)地址？
+#### 为什么Golang中可以返回局部变量(local variable)地址？
 * 引用官方文档的回答如下，从文中可以得知，如果编译器(compiler)无法证明局部变量在返回后未被引用，则将局部变量在堆(heap)中初始化。因此我们可以引用局部变量的地址。
 > How do I know whether a variable is allocated on the heap or the stack?
 >
@@ -156,3 +156,6 @@
 >The storage location does have an effect on writing efficient programs. When possible, the Go compilers will allocate variables that are local to a function in that function's stack frame. **However, if the compiler cannot prove that the variable is not referenced after the function returns, then the compiler must allocate the variable on the garbage-collected heap to avoid dangling pointer errors.** Also, if a local variable is very large, it might make more sense to store it on the heap rather than the stack.
 >
 >In the current compilers, if a variable has its address taken, that variable is a candidate for allocation on the heap. However, a basic escape analysis recognizes some cases when such variables will not live past the return from the function and can reside on the stack.
+
+#### Go Routine底层实现
+
