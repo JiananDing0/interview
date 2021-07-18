@@ -157,5 +157,7 @@
 >
 >In the current compilers, if a variable has its address taken, that variable is a candidate for allocation on the heap. However, a basic escape analysis recognizes some cases when such variables will not live past the return from the function and can reside on the stack.
 
+#### Go垃圾回收算法
+
 #### Go Routine底层实现
 
