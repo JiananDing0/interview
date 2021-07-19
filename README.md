@@ -147,8 +147,12 @@
 
 
 ### 编程中常用关键字
-#### static的作用：[文章链接]()
-#### volatile的作用：[文章链接]()
+#### static的作用：
+* [C语言中的作用](https://www.cnblogs.com/stonejin/archive/2011/09/21/2183313.html)
+* [JAVA中的作用](https://blog.csdn.net/mawei7510/article/details/83412304)
+* [为什么静态方法只能访问其他静态的东西](https://blog.csdn.net/x6696/article/details/80798471?utm_term=%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AA%E8%83%BD%E8%AE%BF%E9%97%AE%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-5-80798471&spm=3001.4430)
+#### volatile的作用：
+* [JAVA中的作用](https://juejin.cn/post/6844903502418804743)
 
 
 ### Golang
