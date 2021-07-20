@@ -44,6 +44,9 @@
 
 ##### TODO:用户态(user-mode)和内核态(kernel-mode)：
 
+##### I/O 模式
+* [各类型I/O的简单介绍](https://www.jianshu.com/p/786d351e06d8)
+
 
 ### 计算机网络
 #### TCP/IP
