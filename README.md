@@ -46,6 +46,7 @@
 
 ##### I/O 模式
 * [各类型I/O的简单介绍](https://www.jianshu.com/p/786d351e06d8)
+* [Linux IO模式及 select、poll、epoll详解](https://segmentfault.com/a/1190000003063859)
 
 
 ### 计算机网络
