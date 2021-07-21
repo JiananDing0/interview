@@ -42,7 +42,7 @@
 * Unix/Linux系统中没有明确区分线程与进程的定义，两者都被task_struct所指代。在Linux2.4版本后才逐渐出现了线程的定义，但它本质上依然使用了数据结构task_struct。创建进程时，linux使用的底层系统调用(system call)为```fork()```方法。
 * Windows系统中有明确区分的线程与进程。创建进程时，windows系统的系统调用为```creatprocess()```方法。
 
-##### TODO:用户态(user-mode)和内核态(kernel-mode)：
+##### 线程切换和进程切换的区别：[文章链接](https://www.cnblogs.com/lfri/p/12597297.html)
 
 ##### I/O 模式
 * [各类型I/O的简单介绍](https://www.jianshu.com/p/786d351e06d8)
