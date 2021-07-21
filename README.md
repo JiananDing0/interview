@@ -48,6 +48,8 @@
 * [各类型I/O的简单介绍](https://www.jianshu.com/p/786d351e06d8)
 * [Linux IO模式及 select、poll、epoll详解](https://segmentfault.com/a/1190000003063859)
 
+##### 协程(co-routine)的定义及用法：[文章链接](https://medium.com/@alex_random/%E5%AF%B9%E4%BA%8E%E5%8D%8F%E7%A8%8B-coroutine-%E4%BD%A0%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E4%BA%8B%E6%83%85%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86-%E5%86%85%E9%99%84%E4%BB%A3%E7%A0%81-125d07739758)
+
 
 ### 计算机网络
 #### TCP/IP
