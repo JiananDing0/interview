@@ -43,6 +43,7 @@
 * Windows系统中有明确区分的线程与进程。创建进程时，windows系统的系统调用为```creatprocess()```方法。
 
 ##### 线程切换和进程切换的区别：[文章链接](https://www.cnblogs.com/lfri/p/12597297.html)
+##### 为什么协程切换代价比进程切换低：[知乎链接](https://www.zhihu.com/question/308641794)
 
 ##### I/O 模式
 * [各类型I/O的简单介绍](https://www.jianshu.com/p/786d351e06d8)
