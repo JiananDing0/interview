@@ -58,6 +58,7 @@
 * TIME_WAIT状态：主动关闭方在收到被动关闭方的FIN包后并返回ACK后，会进入TIME_WAIT状态，期间端口不会被复用，这个状态的持续时间为```2 * MSL```。
   - 一般情况下，MSL的规定时间为2分钟，而一个web服务器最大的端口数为65535个，如果这个服务器作为客户端不停的和服务端不停的创建短连接，就会导致有大量的TCP进入TIME_WAIT状态。
   - ```SO_REUSEADDR```设置为1在TIME_WAIT时允许套接字端口复用；设置为0TIME_WAIT时不允许允许套接字端口复用。可以解决以上问题
+* [TCP和HTTP的Keep-alive代表了什么](https://zhuanlan.zhihu.com/p/224595048)
 
 
 ### 数据库
