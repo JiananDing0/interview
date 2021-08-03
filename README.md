@@ -150,6 +150,13 @@
 ##### MySQL慢查询及解决
 详见收藏夹文章。
 
+#### Redis
+##### Redis的持久化储存
+* RDB存储当前数据库的snapshot，包括所有的key-value pairs
+* AOF存储所有的写入日志，包括delete，update，insert的各种数据
+* 在重启redis的时候，优先查看AOF，如果没有再利用RDB还原redis数据库，因为AOF如果采用onesecond更新模式，最多只会损失一秒的记录，而RDB因为异步写入等原因，很可能和原来数据有较大差异
+
+#####
 
 ### 数据结构
 #### 跳表(skip list): [知乎链接](https://zhuanlan.zhihu.com/p/54869087)
