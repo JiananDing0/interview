@@ -49,6 +49,7 @@
 ##### I/O 模式
 * [各类型I/O的简单介绍](https://www.jianshu.com/p/786d351e06d8)
 * [Linux IO模式及 select、poll、epoll详解](https://segmentfault.com/a/1190000003063859)
+* Epoll的LT和ET分别是什么：
 
 ##### 协程(co-routine)的定义及用法：[文章链接](https://medium.com/@alex_random/%E5%AF%B9%E4%BA%8E%E5%8D%8F%E7%A8%8B-coroutine-%E4%BD%A0%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E4%BA%8B%E6%83%85%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BA%86-%E5%86%85%E9%99%84%E4%BB%A3%E7%A0%81-125d07739758)
 
@@ -60,7 +61,10 @@
   - 一般情况下，MSL的规定时间为2分钟，而一个web服务器最大的端口数为65535个，如果这个服务器作为客户端不停的和服务端不停的创建短连接，就会导致有大量的TCP进入TIME_WAIT状态。
   - ```SO_REUSEADDR```设置为1在TIME_WAIT时允许套接字端口复用；设置为0TIME_WAIT时不允许允许套接字端口复用。可以解决以上问题
 * [TCP和HTTP的Keep-alive代表了什么](https://zhuanlan.zhihu.com/p/224595048)
-
+##### 快重传和快恢复
+* 快重传指的是不等待timeout，而是在收到三次丢失某个包裹的ack后，直接进行重传
+* 快恢复指的是在出现超时重传，或者收到第三个重复的 ack 时（快重传），TCP 会把慢启动门限 ssthresh 的值设置为 cwnd 值的一半，同时 cwnd = ssthresh。
+* 一直超时怎么办？在超时重传的情况下，TCP最多会重试7次，每次时间是之前的两倍，如果第一次时间为1，则7次以后需要共127秒才会断开连接
 
 ### 数据库
 #### MySQL
