@@ -150,6 +150,9 @@
 ##### MySQL慢查询及解决
 详见收藏夹文章。
 
+##### MySQL8.0对于GIS的支持对比PostgreSQL
+[腾讯云文章](https://cloud.tencent.com/developer/article/1739424)
+
 #### Redis
 ##### Redis的持久化储存
 * RDB存储当前数据库的snapshot，包括所有的key-value pairs
