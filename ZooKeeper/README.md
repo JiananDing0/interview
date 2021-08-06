@@ -37,3 +37,6 @@ TODO：根据源码写出ephemeral node如何获取创建它的session的当前�
 * Request Processor
 * Atomic Broadcast: use an atomic broadcast protocol Zab. Zab guarantees that changes broadcast by a leader are delivered in the order they were sent and all changes from previous leaders are delivered to an established leader before it broadcasts its own changes.
 * Replicated Database: replicated database is an in-memory database (on each server) containing the entire data tree. For recoverability, we have a replay log (a write-ahead log, in our case) of committed operations and generate periodic snapshots of the in-memory database.
+  - We do not lock the ZooKeeper state to take the snapshot; instead, we do a depth first scan of the tree atomically reading each znode’s data and meta-data and writing them to disk.
+
+TODO: 查明zookeeper如何实现idempotent：版本号控制，当replay的transaction的版本号比snapshot的版本号小时，不做任何操作
