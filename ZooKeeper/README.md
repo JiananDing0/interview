@@ -34,7 +34,7 @@ TODO：根据源码写出ephemeral node如何获取创建它的session的当前�
 #### 4.Zookeeper Implementation
 * Read Requests: serviced from the local replica of each server database
 * Write Requests: processed by anagreement protocol.
-* Request Processor
+* Request Processor: calculate the state(也许是版本号) after the write request is applied, and generate write transaction if the version number matches. Otherwise generate error transaction.
 * Atomic Broadcast: use an atomic broadcast protocol Zab. Zab guarantees that changes broadcast by a leader are delivered in the order they were sent and all changes from previous leaders are delivered to an established leader before it broadcasts its own changes.
 * Replicated Database: replicated database is an in-memory database (on each server) containing the entire data tree. For recoverability, we have a replay log (a write-ahead log, in our case) of committed operations and generate periodic snapshots of the in-memory database.
   - We do not lock the ZooKeeper state to take the snapshot; instead, we do a depth first scan of the tree atomically reading each znode’s data and meta-data and writing them to disk.
