@@ -185,6 +185,12 @@
 * [JAVA中的作用](https://juejin.cn/post/6844903502418804743)
 
 
+### Java
+#### [Java的内存泄漏](https://blog.csdn.net/m0_38110132/article/details/81986334)
+* > 内存泄露，是从操作系统的角度上来阐述的，形象的比喻就是“操作系统可提供给所有进程的存储空间(虚拟内存空间)正在被某个进程榨干”，导致的原因就是程序在运行的时候，会不断地动态开辟的存储空间，这些存储空间在在运行结束之后后并没有被及时释放掉。应用程序在分配了某段内存之后，由于设计的错误，会导致程序失去了对该段内存的控制，造成了内存空间的浪费。
+#### [Java的Minor GC会导致STW现象吗](https://www.zhihu.com/question/29114369)
+
+
 ### Golang
 #### 为什么Golang中可以返回局部变量(local variable)地址？
 * 引用官方文档的回答如下，从文中可以得知，如果编译器(compiler)无法证明局部变量在返回后未被引用，则将局部变量在堆(heap)中初始化。因此我们可以引用局部变量的地址。
@@ -196,7 +202,11 @@
 >
 >In the current compilers, if a variable has its address taken, that variable is a candidate for allocation on the heap. However, a basic escape analysis recognizes some cases when such variables will not live past the return from the function and can reside on the stack.
 
-#### Go垃圾回收算法
-
 #### Go Routine底层实现
 * [Golang调度器以及GMP模型](https://learnku.com/articles/41728)
+
+#### Go 垃圾回收总结
+* Go的垃圾回收官方形容为 非分代 非紧缩 写屏障 并发标记清理。非分代是golang GC区别于JVM GC分代模型的特点；非紧缩意味着在回收垃圾的过程中，不需要像复制算法那样移动内存中的对象，这样避免STW过长；标记清理算法的字面解释，就是将可达的内存块进行标记mark，最后没有标记的不可达内存块将进行清理sweep；Golang中实现标记功能的算法就是三色标记法，Golang里面三色标记法会造成错标问题，使用写屏障来解决这种问题，而JVM里面的CMS和G1解决错标或者漏标问题的算法分别是Increment Update和SATB。
+
+### C++
+* 虚函数表
