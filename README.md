@@ -189,6 +189,7 @@
 #### [Java的内存泄漏](https://blog.csdn.net/m0_38110132/article/details/81986334)
 * > 内存泄露，是从操作系统的角度上来阐述的，形象的比喻就是“操作系统可提供给所有进程的存储空间(虚拟内存空间)正在被某个进程榨干”，导致的原因就是程序在运行的时候，会不断地动态开辟的存储空间，这些存储空间在在运行结束之后后并没有被及时释放掉。应用程序在分配了某段内存之后，由于设计的错误，会导致程序失去了对该段内存的控制，造成了内存空间的浪费。
 #### [Java的Minor GC会导致STW现象吗](https://www.zhihu.com/question/29114369)
+#### [Java的HashMap，HashTable以及ConcurrentHashMap](https://blog.csdn.net/xiaobaixiongxiong/article/details/88574343)
 
 
 ### Golang
